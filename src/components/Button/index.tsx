@@ -2,10 +2,12 @@ import { GamepadApi } from "@/hooks/useGamepadApi";
 
 type Props = {
   input: GamepadApi;
-  // TODO
   name: string;
+  className?: string;
+  // TODO
+  arts: string;
 };
-export const Button = (input: Props) => {
+export const Button = ({input,name,className,arts}: Props) => {
   const {
     up,
     down,
@@ -21,26 +23,31 @@ export const Button = (input: Props) => {
     buttonY,
     R3,
     L3,
-  } = input.input;
+  } = input;
+
+  const lowPClassName = "bg-[skyblue]"
+  const middlePClassName = "bg-[yellow]"
+  const highPClassName = "bg-[red]"
 
   return (
-    <div className="w-24 h-24 border rounded-full flex items-center justify-center text-2xl">
-      {input.name === "up" && up && "up"}
-      {input.name === "down" && down && "down"}
-      {input.name === "left" && left && "left"}
-      {input.name === "right" && right && "right"}
+    <div className={`w-24 h-24 border rounded-full flex items-center justify-center text-2xl overflow-hidden ${className}`}>
+      {name === "left" && left && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] bg-[gray] p-[4px]`}><img src="left.png" className="w-[100%] h-[100%] object-contain" /></div>}
+      {name === "down" && down && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] bg-[gray] p-[4px]`}><img src="down.png" className="w-[100%] h-[100%] object-contain" /></div>}
+      {name === "right" && right && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] bg-[gray] p-[4px]`}><img src="right.png" className="w-[100%] h-[100%] object-contain" /></div>}
+      {name === "up" && up && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] bg-[gray] p-[4px]`}><img src="up.png" className="w-[100%] h-[100%] object-contain" /></div>}
+      {name === "LT" && LT && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] bg-gradient-to-r from-yellow-300 from-50% to-red-500 to-50%`}></div>}
 
-      {input.name === "RB" && RB && "RB"}
-      {input.name === "LB" && LB && "LB"}
-      {input.name === "RT" && RT && "RT"}
-      {input.name === "LT" && LT && "LT"}
-      {input.name === "R3" && R3 && "R3"}
-      {input.name === "L3" && L3 && "L3"}
+      
+      {name === "buttonA" && buttonA && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white bg-[gray]`}>Auto</div>}
+      {name === "buttonB" && buttonB && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white bg-[orange]`}>SP</div>}
+      {name === "RT" && RT && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white bg-gradient-to-r from-amber-500 from-50% to-red-500 to-50%`}>SA</div>}
+      {name === "L3" && L3 && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white bg-[blue]`}>DI</div>}
 
-      {input.name === "buttonA" && buttonA && "buttonA"}
-      {input.name === "buttonB" && buttonB && "buttonB"}
-      {input.name === "buttonX" && buttonX && "buttonX"}
-      {input.name === "buttonY" && buttonY && "buttonY"}
+      {name === "buttonX" && buttonX && <div className={`w-[100%] h-[100%] ${lowPClassName}`}></div>}
+      {name === "buttonY" && buttonY && <div className={`w-[100%] h-[100%] ${middlePClassName}`}></div>}
+      {name === "RB" && RB && <div className={`w-[100%] h-[100%] ${highPClassName}`}></div>}
+      {name === "LB" && LB && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] bg-[gray] pr-[4px]`}><img src="throw.png" className="w-[100%] h-[100%] object-contain" /></div>}
+      {name === "R3" && R3 && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white bg-[teal]`}>DP</div>}
     </div>
   );
 };

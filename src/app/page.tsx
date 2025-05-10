@@ -7,27 +7,28 @@ export default function Home() {
   const input = useGamepadApi();
 
   return (
-    <div className="flex items-center justify-content-center gap-[100px]">
-      <div className="flex">
-        <Button input={input} name={"up"} />
-        <Button input={input} name={"down"} />
-        <Button input={input} name={"left"} />
-        <Button input={input} name={"right"} />
+    <div className="flex">
+      <div className="flex relative w-[400px] h-[340px] top-[30px]">
+        <Button input={input} name={"left"} arts={"left"} />
+        <Button input={input} name={"down"} arts={"down"} className="absolute top-0 left-[105px]" />
+        <Button input={input} name={"right"} arts={"right"} className="absolute top-[50px] right-[100px]" />
+        <Button input={input} name={"up"} arts={"up"} className="absolute bottom-0 right-[30px]" />
+        <Button input={input} name={"LT"} arts={"LT"} className="absolute bottom-[40px] right-[140px]" />
       </div>
-      <div className="flex flex-col gap-[100px]">
-        <div className="flex">
-          <Button input={input} name={"buttonA"} />
-          <Button input={input} name={"buttonB"} />
-          <Button input={input} name={"buttonX"} />
-          <Button input={input} name={"buttonY"} />
+
+      <div className="flex flex-col gap-[30px] relative left-[-60px]">
+        <div className="flex relative w-[600px] gap-[10px]">
+          <Button input={input} name={"buttonX"} arts={"buttonX"} className="relative top-[30px]" />
+          <Button input={input} name={"buttonY"} arts={"buttonY"} className="relative top-[0px]" />
+          <Button input={input} name={"RB"} arts={"RB"} className="relative top-[0px]" />
+          <Button input={input} name={"LB"} arts={"LB"} className="relative top-[10px]" />
         </div>
-        <div className="flex">
-          <Button input={input} name={"RB"} />
-          <Button input={input} name={"LB"} />
-          <Button input={input} name={"RT"} />
-          <Button input={input} name={"LT"} />
-          <Button input={input} name={"R3"} />
-          <Button input={input} name={"L3"} />
+        <div className="flex relative w-[600px] gap-[10px]">
+          <Button input={input} name={"buttonA"} arts={"buttonA"} className="relative top-[30px]" />
+          <Button input={input} name={"buttonB"} arts={"buttonB"} className="relative top-[0px]" />
+          <Button input={input} name={"RT"} arts={"RT"} className="relative top-[0px]" />
+          <Button input={input} name={"L3"} arts={"L3"} className="relative top-[10px]" />
+          <Button input={input} name={"R3"} arts={"R3"} className="absolute top-[130px] left-[80px]" />
         </div>
       </div>
     </div>
