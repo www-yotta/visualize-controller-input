@@ -8,7 +8,7 @@ import {
   useGamepadApi,
 } from "@/hooks/useGamepadApi";
 import { useSearchParams } from "next/navigation";
-import { ReactNode, useState, Suspense } from "react";
+import { ReactNode, useState } from "react";
 import Image from "next/image";
 
 type GamepadApiButtonKeys = keyof GamepadApiButton;
@@ -234,73 +234,71 @@ export default function Home() {
   // TODO: UI上からボタン1つ1つに攻撃情報を選んでartsOrderに追加する処理
 
   return (
-    <Suspense>
-      <div>
-        <div className="flex">
-          <div className="flex relative w-[400px] h-[340px] top-[30px]">
-            {buttonOrders.slice(0, 4).map((key, index) => {
+    <div>
+      <div className="flex">
+        <div className="flex relative w-[400px] h-[340px] top-[30px]">
+          {buttonOrders.slice(0, 4).map((key, index) => {
+            return (
+              <Button
+                key={key}
+                className={`${buttonClasses[index]}`}
+                isShow={isShow}
+                isPushing={input[key]}
+              >
+                {buttonComponents[artsOrders[index]]}
+              </Button>
+            );
+          })}
+
+          <Button
+            className="absolute bottom-[40px] right-[140px]"
+            isShow={isShow}
+            isPushing={input[buttonOrders[buttonOrders.length - 1]]}
+          >
+            {buttonComponents[artsOrders[buttonOrders.length - 1]]}
+          </Button>
+        </div>
+
+        <div className="flex flex-col gap-[30px] relative left-[-60px]">
+          <div className="flex relative w-[600px] gap-[10px]">
+            {buttonOrders.slice(4, 8).map((key, index) => {
               return (
                 <Button
                   key={key}
-                  className={`${buttonClasses[index]}`}
+                  className={`${buttonClasses[index + 4]}`}
                   isShow={isShow}
                   isPushing={input[key]}
                 >
-                  {buttonComponents[artsOrders[index]]}
+                  {buttonComponents[artsOrders[index + 4]]}
+                </Button>
+              );
+            })}
+          </div>
+          <div className="flex relative w-[600px] gap-[10px]">
+            {buttonOrders.slice(8, 13).map((key, index) => {
+              return (
+                <Button
+                  key={key}
+                  className={`${buttonClasses[index + 8]}`}
+                  isShow={isShow}
+                  isPushing={input[key]}
+                >
+                  {buttonComponents[artsOrders[index + 8]]}
                 </Button>
               );
             })}
 
             <Button
-              className="absolute bottom-[40px] right-[140px]"
+              className="absolute top-[130px] left-[80px]"
               isShow={isShow}
-              isPushing={input[buttonOrders[buttonOrders.length - 1]]}
+              isPushing={input[buttonOrders[buttonOrders.length - 2]]}
             >
-              {buttonComponents[artsOrders[buttonOrders.length - 1]]}
+              {buttonComponents[artsOrders[buttonOrders.length - 2]]}
             </Button>
           </div>
-
-          <div className="flex flex-col gap-[30px] relative left-[-60px]">
-            <div className="flex relative w-[600px] gap-[10px]">
-              {buttonOrders.slice(4, 8).map((key, index) => {
-                return (
-                  <Button
-                    key={key}
-                    className={`${buttonClasses[index + 4]}`}
-                    isShow={isShow}
-                    isPushing={input[key]}
-                  >
-                    {buttonComponents[artsOrders[index + 4]]}
-                  </Button>
-                );
-              })}
-            </div>
-            <div className="flex relative w-[600px] gap-[10px]">
-              {buttonOrders.slice(8, 13).map((key, index) => {
-                return (
-                  <Button
-                    key={key}
-                    className={`${buttonClasses[index + 8]}`}
-                    isShow={isShow}
-                    isPushing={input[key]}
-                  >
-                    {buttonComponents[artsOrders[index + 8]]}
-                  </Button>
-                );
-              })}
-
-              <Button
-                className="absolute top-[130px] left-[80px]"
-                isShow={isShow}
-                isPushing={input[buttonOrders[buttonOrders.length - 2]]}
-              >
-                {buttonComponents[artsOrders[buttonOrders.length - 2]]}
-              </Button>
-            </div>
-          </div>
         </div>
-        <ToggleViewButton onClick={setIsShow} isShow={isShow} />
       </div>
-    </Suspense>
+      <ToggleViewButton onClick={setIsShow} isShow={isShow} />
+    </div>
   );
 }
