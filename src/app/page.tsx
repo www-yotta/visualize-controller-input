@@ -216,15 +216,13 @@ const defaultSf6ArtsOrder = [
 export default function Home() {
   const searchParams = useSearchParams();
   const [isShow, setIsShow] = useState<boolean>(false);
-  const [buttonOrders, setButtonOrders] = useState<GamepadApiButtonKeys[]>(
-    () => {
-      const buttonOrderString =
-        searchParams.get("buttonOrders") ||
-        defaultControllerButtonOrder.join(",");
-      return buttonOrderString.split(",") as GamepadApiButtonKeys[];
-    }
-  );
-  const [artsOrders, setArtsOrders] = useState<(Sf6Arts | "_")[]>(() => {
+  const [buttonOrders] = useState<GamepadApiButtonKeys[]>(() => {
+    const buttonOrderString =
+      searchParams.get("buttonOrders") ||
+      defaultControllerButtonOrder.join(",");
+    return buttonOrderString.split(",") as GamepadApiButtonKeys[];
+  });
+  const [artsOrders] = useState<(Sf6Arts | "_")[]>(() => {
     const artsOrderString =
       searchParams.get("artsOrders") || defaultSf6ArtsOrder.join(",");
     return artsOrderString.split(",") as Sf6Arts[];
