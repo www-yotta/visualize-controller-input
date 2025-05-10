@@ -37,8 +37,8 @@ export const Button = ({input,name,className}: Props) => {
       {name === "right" && right && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] bg-[gray] p-[4px]`}><Image width="96" height="96" unoptimized alt="" src="right.png" className="w-[100%] h-[100%] object-contain" /></div>}
       {name === "up" && up && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] bg-[gray] p-[4px]`}><Image width="96" height="96" unoptimized alt="" src="up.png" className="w-[100%] h-[100%] object-contain" /></div>}
       {name === "LT" && LT && <div className={`flex relative w-[100%] h-[100%] items-center justify-center text-[40px]`}>
-        <div className="absolute w-[50%] h-[100%] left-[0px] bg-yellow-300"></div>
-        <div className="absolute w-[50%] h-[100%] right-[0px] bg-red-500"></div>
+        <div className="absolute w-[50%] h-[100%] left-[0px] bg-[yellow]"></div>
+        <div className="absolute w-[50%] h-[100%] right-[0px] bg-[red]"></div>
       </div>}
 
       
@@ -48,8 +48,8 @@ export const Button = ({input,name,className}: Props) => {
         <span className="relative z-1">
           SA
         </span>
-        <div className="absolute w-[50%] h-[100%] left-[0px] bg-amber-500"></div>
-        <div className="absolute w-[50%] h-[100%] right-[0px] bg-red-500"></div>
+        <div className="absolute w-[50%] h-[100%] left-[0px] bg-[orange]"></div>
+        <div className="absolute w-[50%] h-[100%] right-[0px] bg-[red]"></div>
       </div>}
       {name === "L3" && L3 && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white bg-[blue]`}>DI</div>}
 
