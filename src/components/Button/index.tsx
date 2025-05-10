@@ -27,9 +27,9 @@ export const Button = ({input,name,className,isShow = false}: Props) => {
     L3,
   } = input;
 
-  const lowPClassName = "bg-[skyblue]"
-  const middlePClassName = "bg-[yellow]"
-  const highPClassName = "bg-[red]"
+  const lowPClassName = "bg-[darkTurquoise]"
+  const middlePClassName = "bg-[gold]"
+  const highPClassName = "bg-[crimson]"
 
   return (
     <div className={`w-24 h-24 border rounded-full flex items-center justify-center text-2xl overflow-hidden ${className}`}>
@@ -38,8 +38,8 @@ export const Button = ({input,name,className,isShow = false}: Props) => {
       {name === "right" && (right || isShow) && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] bg-[gray] p-[4px]`}><Image width="96" height="96" unoptimized alt="" src="right.png" className="w-[100%] h-[100%] object-contain" /></div>}
       {name === "up" && (up || isShow) && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] bg-[gray] p-[4px]`}><Image width="96" height="96" unoptimized alt="" src="up.png" className="w-[100%] h-[100%] object-contain" /></div>}
       {name === "LT" && (LT || isShow) && <div className={`flex relative w-[100%] h-[100%] items-center justify-center text-[40px]`}>
-        <div className="absolute w-[50%] h-[100%] left-[0px] bg-[yellow]"></div>
-        <div className="absolute w-[50%] h-[100%] right-[0px] bg-[red]"></div>
+        <div className="flex absolute w-[50%] h-[100%] left-[0px] items-center justify-center text-[36px] text-white bg-[gold]">中</div>
+        <div className="flex absolute w-[50%] h-[100%] right-[0px] items-center justify-center text-[36px] text-white bg-[crimson]">強</div>
       </div>}
 
       
@@ -50,13 +50,13 @@ export const Button = ({input,name,className,isShow = false}: Props) => {
           SA
         </span>
         <div className="absolute w-[50%] h-[100%] left-[0px] bg-[orange]"></div>
-        <div className="absolute w-[50%] h-[100%] right-[0px] bg-[red]"></div>
+        <div className="absolute w-[50%] h-[100%] right-[0px] bg-[crimson]"></div>
       </div>}
       {name === "L3" && (L3 || isShow) && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white bg-[blue]`}>DI</div>}
 
-      {name === "buttonX" && (buttonX || isShow) && <div className={`w-[100%] h-[100%] ${lowPClassName}`}></div>}
-      {name === "buttonY" && (buttonY || isShow) && <div className={`w-[100%] h-[100%] ${middlePClassName}`}></div>}
-      {name === "RB" && (RB || isShow) && <div className={`w-[100%] h-[100%] ${highPClassName}`}></div>}
+      {name === "buttonX" && (buttonX || isShow) && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white ${lowPClassName}`}>弱</div>}
+      {name === "buttonY" && (buttonY || isShow) && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white ${middlePClassName}`}>中</div>}
+      {name === "RB" && (RB || isShow) && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white ${highPClassName}`}>強</div>}
       {name === "LB" && (LB || isShow) && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] bg-[gray] pr-[4px]`}><Image width="96" height="96" unoptimized alt="" src="throw.png" className="w-[100%] h-[100%] object-contain" /></div>}
       {name === "R3" && (R3 || isShow) && <div className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white bg-[teal]`}>DP</div>}
     </div>
