@@ -8,7 +8,7 @@ type Props = {
   // TODO
   arts: string;
 };
-export const Button = ({input,name,className,arts}: Props) => {
+export const Button = ({input,name,className}: Props) => {
   const {
     up,
     down,
