@@ -7,9 +7,6 @@ const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-  rules: {
-    "@next/next/no-img-element": "off",
-  },
 });
 
 const eslintConfig = [
