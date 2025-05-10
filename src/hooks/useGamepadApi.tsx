@@ -2,14 +2,11 @@
 
 import { useState, useEffect } from "react";
 
-export type GamepadApi = {
-  connected: boolean;
+export type GamepadApiButton = {
   buttonA: boolean;
   buttonB: boolean;
   buttonX: boolean;
   buttonY: boolean;
-  joystick: number[];
-  joystickRight: number[];
   RB: boolean;
   LB: boolean;
   RT: boolean;
@@ -23,6 +20,15 @@ export type GamepadApi = {
   left: boolean;
   right: boolean;
 };
+export type GamepadApiStick = {
+  joystick: number[];
+  joystickRight: number[];
+};
+
+export type GamepadApi = {
+  connected: boolean;
+} & GamepadApiButton &
+  GamepadApiStick;
 
 export const useGamepadApi = () => {
   const init: GamepadApi = {
@@ -113,3 +119,24 @@ export const useGamepadApi = () => {
 
   return gamepadInfo;
 };
+
+export type Sf6Arts =
+  | "left"
+  | "down"
+  | "right"
+  | "up"
+  | "low"
+  | "middle"
+  | "high"
+  | "sp"
+  | "parry"
+  | "impact"
+  | "assist"
+  | "sa"
+  | "throw"
+  | "low_p"
+  | "low_k"
+  | "middle_p"
+  | "middle_k"
+  | "high_p"
+  | "high_k";
