@@ -31,6 +31,7 @@ export default function Home() {
           <Button input={input} name={"R3"} arts={"R3"} className="absolute top-[130px] left-[80px]" />
         </div>
       </div>
+      hello
     </div>
   );
 }
