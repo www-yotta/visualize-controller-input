@@ -57,7 +57,7 @@ export const useGamepadApi = () => {
   const updateGamepadState = () => {
     const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
     const gamepad = gamepads[0];
-    console.log("gamepad", gamepad);
+    // console.log("gamepad", gamepad);
 
     if (gamepad) {
       const newGamepadInfo = {

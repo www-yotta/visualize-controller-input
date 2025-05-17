@@ -142,12 +142,48 @@ const buttonComponents: { [key in Sf6Arts | "_"]: ReactNode } = {
       />
     </div>
   ),
-  low_p: <>弱P</>,
-  low_k: <>弱K</>,
-  middle_p: <>中P</>,
-  middle_k: <>中K</>,
-  high_p: <>強P</>,
-  high_k: <>強K</>,
+  low_p: (
+    <div
+      className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white bg-[darkTurquoise]`}
+    >
+      P
+    </div>
+  ),
+  low_k: (
+    <div
+      className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white bg-[darkTurquoise]`}
+    >
+      K
+    </div>
+  ),
+  middle_p: (
+    <div
+      className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white bg-[gold]`}
+    >
+      P
+    </div>
+  ),
+  middle_k: (
+    <div
+      className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white bg-[gold]`}
+    >
+      K
+    </div>
+  ),
+  high_p: (
+    <div
+      className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white bg-[crimson]`}
+    >
+      P
+    </div>
+  ),
+  high_k: (
+    <div
+      className={`flex w-[100%] h-[100%] items-center justify-center text-[40px] text-white bg-[crimson]`}
+    >
+      K
+    </div>
+  ),
   _: (
     <div
       className={`flex relative w-[100%] h-[100%] items-center justify-center text-[40px]`}
