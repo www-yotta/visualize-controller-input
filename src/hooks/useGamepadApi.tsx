@@ -171,6 +171,7 @@ export const useGamepadApi = () => {
    * @param newState 新しいゲームパッド状態
    * @param gamepad 生のゲームパッドオブジェクト
    */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const logGamepadUpdate = (newState: GamepadApi, gamepad: Gamepad) => {
     const pressedButtons = Object.entries(newState)
       .filter(([_, value]) => typeof value === "boolean" && value)
