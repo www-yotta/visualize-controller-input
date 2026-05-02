@@ -174,6 +174,7 @@ export const useGamepadApi = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const logGamepadUpdate = (newState: GamepadApi, gamepad: Gamepad) => {
     const pressedButtons = Object.entries(newState)
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .filter(([_, value]) => typeof value === "boolean" && value)
       .map(([key]) => key)
       .join(", ");
@@ -256,7 +257,7 @@ export const useGamepadApi = () => {
       window.removeEventListener("gamepaddisconnected", gamepadDisconnected);
       clearInterval(interval);
     };
-  }, []);
+  }, [init, updateGamepadState]);
 
   return gamepadInfo;
 };

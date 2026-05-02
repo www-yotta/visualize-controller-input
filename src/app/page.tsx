@@ -52,8 +52,18 @@ const defaultSf6ArtsOrder = [
 
 export default function Home() {
   const searchParams = useSearchParams();
-  const [viewMode, setViewMode] = useState<ViewMode>("translucent");
-  const [controllerType, setControllerType] = useState<ControllerType>("TypeA");
+  const [viewMode, setViewMode] = useState<ViewMode>(() => {
+    const viewModeParam = searchParams.get("viewMode");
+    return viewModeParam === "show" || viewModeParam === "hidden" || viewModeParam === "translucent"
+      ? (viewModeParam as ViewMode)
+      : "translucent";
+  });
+  const [controllerType, setControllerType] = useState<ControllerType>(() => {
+    const controllerTypeParam = searchParams.get("controllerType");
+    return controllerTypeParam === "TypeA" || controllerTypeParam === "TypeB"
+      ? (controllerTypeParam as ControllerType)
+      : "TypeA";
+  });
   const [buttonOrders] = useState<GamepadApiButtonKeys[]>(() => {
     const buttonOrderString =
       searchParams.get("buttonOrders") ||
