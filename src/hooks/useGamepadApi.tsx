@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 
+export type ViewMode = "show" | "hidden" | "translucent";
+
 /**
  * ゲームパッドのボタン状態を表す型
  */
