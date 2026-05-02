@@ -217,69 +217,69 @@ const buttonClasses = [
 ];
 
 export const TypeA = ({ buttonOrders, artsOrders, input, viewMode }: Props) => {
-    return(
-              <div className="flex">
-                <div className="flex relative w-[400px] h-[340px] top-[30px]">
-                  {buttonOrders.slice(0, 4).map((key, index) => {
-                    return (
-                      <Button
-                        key={key}
-                        className={`${buttonClasses[index]}`}
-                        viewMode={viewMode}
-                        isPushing={input[key]}
-                      >
-                        {buttonComponents[artsOrders[index]]}
-                      </Button>
-                    );
-                  })}
-        
-                  <Button
-                    className="absolute bottom-[40px] right-[140px]"
-                    viewMode={viewMode}
-                    isPushing={input[buttonOrders[buttonOrders.length - 1]]}
-                  >
-                    {buttonComponents[artsOrders[buttonOrders.length - 1]]}
-                  </Button>
-                </div>
-        
-                <div className="flex flex-col gap-[30px] relative left-[-60px]">
-                  <div className="flex relative w-[600px] gap-[10px]">
-                    {buttonOrders.slice(4, 8).map((key, index) => {
-                      return (
-                        <Button
-                          key={key}
-                          className={`${buttonClasses[index + 4]}`}
-                          viewMode={viewMode}
-                          isPushing={input[key]}
-                        >
-                          {buttonComponents[artsOrders[index + 4]]}
-                        </Button>
-                      );
-                    })}
-                  </div>
-                  <div className="flex relative w-[600px] gap-[10px]">
-                    {buttonOrders.slice(8, 13).map((key, index) => {
-                      return (
-                        <Button
-                          key={key}
-                          className={`${buttonClasses[index + 8]}`}
-                          viewMode={viewMode}
-                          isPushing={input[key]}
-                        >
-                          {buttonComponents[artsOrders[index + 8]]}
-                        </Button>
-                      );
-                    })}
-        
-                    <Button
-                      className="absolute top-[130px] left-[80px]"
-                      viewMode={viewMode}
-                      isPushing={input[buttonOrders[buttonOrders.length - 2]]}
-                    >
-                      {buttonComponents[artsOrders[buttonOrders.length - 2]]}
-                    </Button>
-                  </div>
-                </div>
-              </div>
-    )
+  return (
+    <div className="flex">
+      <div className="flex relative w-[400px] h-[340px] top-[30px]">
+        {buttonOrders.slice(0, 4).map((key, index) => {
+          return (
+            <Button
+              key={key}
+              className={`${buttonClasses[index]}`}
+              viewMode={viewMode}
+              isPushing={input[key]}
+            >
+              {buttonComponents[artsOrders[index]]}
+            </Button>
+          );
+        })}
+
+        <Button
+          className="absolute bottom-[40px] right-[140px]"
+          viewMode={viewMode}
+          isPushing={input[buttonOrders[buttonOrders.length - 1]]}
+        >
+          {buttonComponents[artsOrders[buttonOrders.length - 1]]}
+        </Button>
+      </div>
+
+      <div className="flex flex-col gap-[30px] relative left-[-60px]">
+        <div className="flex relative w-[600px] gap-[10px]">
+          {buttonOrders.slice(4, 8).map((key, index) => {
+            return (
+              <Button
+                key={key}
+                className={`${buttonClasses[index + 4]}`}
+                viewMode={viewMode}
+                isPushing={input[key]}
+              >
+                {buttonComponents[artsOrders[index + 4]]}
+              </Button>
+            );
+          })}
+        </div>
+        <div className="flex relative w-[600px] gap-[10px]">
+          {buttonOrders.slice(8, 13).map((key, index) => {
+            return (
+              <Button
+                key={key}
+                className={`${buttonClasses[index + 8]}`}
+                viewMode={viewMode}
+                isPushing={input[key]}
+              >
+                {buttonComponents[artsOrders[index + 8]]}
+              </Button>
+            );
+          })}
+
+          <Button
+            className="absolute top-[130px] left-[80px]"
+            viewMode={viewMode}
+            isPushing={input[buttonOrders[buttonOrders.length - 2]]}
+          >
+            {buttonComponents[artsOrders[buttonOrders.length - 2]]}
+          </Button>
+        </div>
+      </div>
+    </div>
+  )
 }

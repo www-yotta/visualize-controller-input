@@ -173,10 +173,10 @@ export const useGamepadApi = () => {
    */
   const logGamepadUpdate = (newState: GamepadApi, gamepad: Gamepad) => {
     const pressedButtons = Object.entries(newState)
-      .filter(([key, value]) => typeof value === "boolean" && value)
+      .filter(([_, value]) => typeof value === "boolean" && value)
       .map(([key]) => key)
       .join(", ");
-    console.log('gamepad aaaa',gamepad)
+    console.log('gamepad aaaa', gamepad)
     console.groupCollapsed(
       `Gamepad ${gamepad.index} update${pressedButtons ? ` (${pressedButtons})` : ""}`
     );
@@ -220,7 +220,7 @@ export const useGamepadApi = () => {
       const newGamepadInfo = buildButtonState(gamepad);
 
       if (JSON.stringify(newGamepadInfo) !== JSON.stringify(prevGamepadInfo.current)) {
-        logGamepadUpdate(newGamepadInfo, gamepad);
+        // logGamepadUpdate(newGamepadInfo, gamepad);
         prevGamepadInfo.current = newGamepadInfo;
         setGamepadInfo(newGamepadInfo);
       }
