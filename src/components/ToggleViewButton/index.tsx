@@ -2,17 +2,29 @@
 
 import { Dispatch, SetStateAction } from "react";
 
-type Props = {
-onClick:Dispatch<SetStateAction<boolean>>;
-isShow:boolean;
-};
-export const ToggleViewButton = ({onClick,isShow}: Props) => {
+type ViewMode = "show" | "hidden" | "translucent";
 
-  const handleClick = () => {
-    onClick(!isShow)
-  }
+type Props = {
+  onChange: Dispatch<SetStateAction<ViewMode>>;
+  viewMode: ViewMode;
+};
+
+export const ToggleViewButton = ({ onChange, viewMode }: Props) => {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    onChange(e.target.value as ViewMode);
+  };
 
   return (
-    <div onClick={handleClick} className={`w-[80px] border mt-[100px]`}>{isShow ? "表示" : "非表示"}</div>
+    <div className="mt-[100px]">
+      <select
+        value={viewMode}
+        onChange={handleChange}
+        className="w-[120px] p-[8px] border border-gray-300 rounded"
+      >
+        <option value="show">表示</option>
+        <option value="hidden">非表示</option>
+        <option value="translucent">半透明</option>
+      </select>
+    </div>
   );
 };

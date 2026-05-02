@@ -251,7 +251,7 @@ const defaultSf6ArtsOrder = [
 
 export default function Home() {
   const searchParams = useSearchParams();
-  const [isShow, setIsShow] = useState<boolean>(false);
+  const [viewMode, setViewMode] = useState<"show" | "hidden" | "translucent">("translucent");
   const [buttonOrders] = useState<GamepadApiButtonKeys[]>(() => {
     const buttonOrderString =
       searchParams.get("buttonOrders") ||
@@ -278,7 +278,7 @@ export default function Home() {
               <Button
                 key={key}
                 className={`${buttonClasses[index]}`}
-                isShow={isShow}
+                viewMode={viewMode}
                 isPushing={input[key]}
               >
                 {buttonComponents[artsOrders[index]]}
@@ -288,7 +288,7 @@ export default function Home() {
 
           <Button
             className="absolute bottom-[40px] right-[140px]"
-            isShow={isShow}
+            viewMode={viewMode}
             isPushing={input[buttonOrders[buttonOrders.length - 1]]}
           >
             {buttonComponents[artsOrders[buttonOrders.length - 1]]}
@@ -302,7 +302,7 @@ export default function Home() {
                 <Button
                   key={key}
                   className={`${buttonClasses[index + 4]}`}
-                  isShow={isShow}
+                  viewMode={viewMode}
                   isPushing={input[key]}
                 >
                   {buttonComponents[artsOrders[index + 4]]}
@@ -316,7 +316,7 @@ export default function Home() {
                 <Button
                   key={key}
                   className={`${buttonClasses[index + 8]}`}
-                  isShow={isShow}
+                  viewMode={viewMode}
                   isPushing={input[key]}
                 >
                   {buttonComponents[artsOrders[index + 8]]}
@@ -326,7 +326,7 @@ export default function Home() {
 
             <Button
               className="absolute top-[130px] left-[80px]"
-              isShow={isShow}
+              viewMode={viewMode}
               isPushing={input[buttonOrders[buttonOrders.length - 2]]}
             >
               {buttonComponents[artsOrders[buttonOrders.length - 2]]}
@@ -334,7 +334,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <ToggleViewButton onClick={setIsShow} isShow={isShow} />
+      <ToggleViewButton onChange={setViewMode} viewMode={viewMode} />
     </div>
   );
 }
