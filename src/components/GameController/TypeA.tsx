@@ -189,8 +189,8 @@ const buttonComponents: { [key in Sf6Arts | "_"]: ReactNode } = {
     <div
       className={`flex relative w-[100%] h-[100%] items-center justify-center text-[40px]`}
     >
-      <div className="flex absolute w-[50%] h-[100%] left-[0px] items-center justify-center text-[36px] text-white bg-[gold]">
-        中
+      <div className="flex absolute w-[50%] h-[100%] left-[0px] items-center justify-center text-[36px] text-white bg-[darkTurquoise]">
+        弱
       </div>
       <div className="flex absolute w-[50%] h-[100%] right-[0px] items-center justify-center text-[36px] text-white bg-[crimson]">
         強
